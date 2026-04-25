@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sahil Printing – True Colours, Clarity & Perfection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --gold: #f5a623;
+      --gold-light: #ffd97d;
+      --blue-dark: #0a0e2a;
+      --blue-mid: #0d1b4b;
+      --blue-neon: #00c8ff;
+      --white: #ffffff;
+      --gray-light: #f4f4f4;
+      --gray-text: #ccc;
+      --red-accent: #e63946;
+      --green-accent: #25d366;
+      --card-bg: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--blue-dark);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 5%;
+      background: rgba(10,14,42,0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .nav-logo span { color: var(--blue-neon); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--gray-text);
+      transition: color 0.2s;
+      letter-spacing: 0.5px;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), #e08a00);
+      color: #000 !important;
+      padding: 9px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      background: url('ChatGPT Image Apr 25, 2026, 03_41_28 PM.png') center/cover no-repeat;
+      padding: 120px 5% 80px;
+      
+    }
+    .hero-glow {
+      position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none;
+    }
+    .hero-glow-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,200,255,0.18), transparent 70%);
+      top: -100px; left: -100px;
+    }
+    .hero-glow-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,166,35,0.18), transparent 70%);
+      bottom: -100px; right: -100px;
+    }
+    .hero-content {
+      text-align: center; position: relative; z-index: 2; max-width: 780px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,200,255,0.12);
+      border: 1px solid rgba(0,200,255,0.35);
+      color: var(--blue-neon);
+      font-size: 0.78rem; font-weight: 600;
+      padding: 6px 18px; border-radius: 30px;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 20px;
+      animation: fadeInDown 0.8s ease both;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900; line-height: 1.1;
+      margin-bottom: 18px;
+      animation: fadeInUp 0.9s 0.1s ease both;
+    }
+    .hero-title .gold { color: var(--gold); }
+    .hero-title .neon { color: var(--blue-neon); }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--gray-text);
+      margin-bottom: 40px; line-height: 1.7;
+      animation: fadeInUp 0.9s 0.2s ease both;
+    }
+    .hero-cover {
+      position: relative; z-index: 2;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 0 60px rgba(0,200,255,0.3), 0 0 120px rgba(245,166,35,0.15);
+      max-width: 900px; margin: 30px auto 40px;
+      border: 2px solid rgba(0,200,255,0.3);
+      animation: fadeInUp 0.9s 0.3s ease both;
+    }
+    .hero-cover img {
+      width: 100%; height: 420px; object-fit: cover;
+    }
+    .hero-cover .cover-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,14,42,0.7) 0%, transparent 60%);
+    }
+    .hero-cover .cover-text {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      text-align: center;
+    }
+    .cover-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: var(--white);
+      text-shadow: 0 0 20px rgba(0,200,255,0.7);
+    }
+    .cover-text p { color: var(--gold-light); font-size: 0.9rem; letter-spacing: 2px; }
+    .hero-btns {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      animation: fadeInUp 0.9s 0.4s ease both;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #d4860e);
+      color: #000; font-weight: 700; font-size: 1rem;
+      padding: 14px 36px; border-radius: 50px;
+      border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(245,166,35,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,166,35,0.5); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white); font-weight: 600; font-size: 1rem;
+      padding: 14px 36px; border-radius: 50px;
+      border: 2px solid rgba(255,255,255,0.3); cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ===== SERVICES SELECTOR ===== */
+    #services-selector {
+      padding: 90px 5%;
+      background: linear-gradient(180deg, #0a0e2a 0%, #0d1421 100%);
+    }
+    .section-label {
+      text-align: center; margin-bottom: 56px;
+    }
+    .section-label .tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--gold); letter-spacing: 3px;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section-label h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900;
+      line-height: 1.2;
+    }
+    .section-label h2 span { color: var(--blue-neon); }
+    .section-label p { color: var(--gray-text); margin-top: 12px; font-size: 1rem; }
+
+    /* Service Cards Grid */
+    #service-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 88px; max-width: 1200px; margin: 0 auto;
+    }
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 34px 26px;
+      min-height: 420px;
+      text-align: center; cursor: pointer;
+      transition: all 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(245,166,35,0.08));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: 0 18px 48px rgba(245,166,35,0.22);
+    }
+    .service-card.active {
+      border-color: var(--blue-neon);
+      background: rgba(0,200,255,0.08);
+      box-shadow: 0 0 30px rgba(0,200,255,0.2);
+    }
+    .service-icon {
+      width: 250px; height: 250px;
+      margin: 0 auto 20px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+    }
+    .service-icon img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
+    .service-card p { font-size: 0.95rem; color: var(--gray-text); line-height: 1.6; }
+
+
+    /* ===== DESIGN GALLERY TAB ===== */
+    #design-gallery { padding: 80px 5%; display: none; }
+    #design-gallery.visible { display: block; }
+    .gallery-header {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px; margin-bottom: 36px;
+    }
+    .gallery-header h2 {
+      font-family: 'Playfair Display', serif; font-size: 2rem;
+    }
+    .gallery-header h2 span { color: var(--gold); }
+    .btn-back {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border); color: var(--white);
+      padding: 10px 22px; border-radius: 30px;
+      font-size: 0.88rem; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-back:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Designs Grid */
+    #designs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 22px;
+    }
+    .design-item {
+      background:url('design-item.jpg') center/cover no-repeat;
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      transition: all 0.3s; cursor: pointer;
+      position: relative;
+    }
+    .design-item:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .design-item .img-wrap {
+      width: 100%; height: 200px; overflow: hidden;
+      background:url('12323.png') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .design-item .img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .design-item:hover .img-wrap img { transform: scale(1.06); }
+    /* Placeholder when no image */
+    .design-item .img-placeholder {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; width: 100%; height: 100%;
+      color: rgba(255,255,255,0.2); font-size: 0.8rem;
+      gap: 10px;
+    }
+    .design-item .img-placeholder .ph-icon { font-size: 3rem; }
+    .design-item .img-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .design-item:hover .img-overlay { opacity: 1; }
+    .overlay-btn {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.5);
+      color: white; padding: 8px 16px;
+      border-radius: 20px; font-size: 0.78rem;
+      cursor: pointer; transition: all 0.2s; backdrop-filter: blur(4px);
+    }
+    .overlay-btn:hover { background: var(--gold); border-color: var(--gold); color: #000; }
+    .design-item .item-info { padding: 14px 16px; }
+    .design-item .item-info h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .design-item .item-info p { font-size: 0.78rem; color: var(--gray-text); }
+    .design-item .item-actions {
+      padding: 0 16px 14px;
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .btn-select {
+      flex: 1; background: linear-gradient(135deg, var(--gold), #d4860e);
+      color: #000; font-weight: 600; font-size: 0.8rem;
+      padding: 8px 14px; border-radius: 20px;
+      border: none; cursor: pointer; transition: opacity 0.2s;
+    }
+    .btn-select:hover { opacity: 0.85; }
+    /* Admin Delete */
+    .btn-delete {
+      background: rgba(230,57,70,0.15);
+      border: 1px solid var(--red-accent);
+      color: var(--red-accent); font-size: 0.8rem;
+      padding: 8px 14px; border-radius: 20px;
+      cursor: pointer; transition: all 0.2s; display: none;
+    }
+    body.admin-mode .btn-delete { display: block; }
+    .btn-delete:hover { background: var(--red-accent); color: #fff; }
+
+    /* Upload Box */
+    #upload-box {
+      margin-top: 40px;
+      background: var(--card-bg);
+      border: 2px dashed rgba(0,200,255,0.3);
+      border-radius: 18px; padding: 40px;
+      text-align: center; transition: border-color 0.3s;
+    }
+    #upload-box:hover { border-color: var(--blue-neon); }
+    #upload-box .upload-icon { font-size: 3.5rem; margin-bottom: 14px; }
+    #upload-box h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    #upload-box p { color: var(--gray-text); font-size: 0.88rem; margin-bottom: 24px; }
+    #file-input { display: none; }
+    .upload-label {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--blue-neon), #0088cc);
+      color: #000; font-weight: 700;
+      padding: 12px 30px; border-radius: 30px;
+      cursor: pointer; font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+    .upload-label:hover { opacity: 0.88; }
+    #upload-preview { margin-top: 22px; }
+    #upload-preview img {
+      max-height: 260px; border-radius: 12px;
+      margin: 0 auto; border: 2px solid var(--border);
+    }
+
+    /* Customer Upload Section */
+    #customer-upload-section {
+      margin-top: 40px;
+      background: linear-gradient(135deg, rgba(37,211,102,0.08), rgba(0,200,255,0.06));
+      border: 1px solid rgba(37,211,102,0.25);
+      border-radius: 18px; padding: 36px;
+    }
+    #customer-upload-section h3 { font-size: 1.4rem; margin-bottom: 6px; }
+    #customer-upload-section p { color: var(--gray-text); font-size: 0.9rem; margin-bottom: 24px; }
+    .customer-form { display: grid; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-field label { display: block; font-size: 0.82rem; color: var(--gold); margin-bottom: 6px; font-weight: 600; }
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--white);
+      padding: 11px 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus { border-color: var(--blue-neon); }
+    .form-field textarea { resize: vertical; min-height: 90px; }
+    .form-field select option { background: #0a0e2a; }
+    .cust-file-label {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px dashed var(--border);
+      border-radius: 10px; padding: 14px;
+      cursor: pointer; transition: border-color 0.2s;
+    }
+    .cust-file-label:hover { border-color: var(--green-accent); }
+    .cust-file-label span { font-size: 0.88rem; color: var(--gray-text); }
+    #cust-file-input { display: none; }
+    #cust-file-name { font-size: 0.8rem; color: var(--green-accent); margin-top: 6px; }
+    .btn-whatsapp {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(135deg, var(--green-accent), #128c7e);
+      color: #fff; font-weight: 700; font-size: 1rem;
+      padding: 14px 30px; border-radius: 50px;
+      border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    }
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.45); }
+
+    /* ===== ADMIN PANEL ===== */
+    #admin-panel {
+      padding: 80px 5%;
+      background: linear-gradient(180deg, #080c20 0%, #0a0e2a 100%);
+      display: none;
+    }
+    #admin-panel.visible { display: block; }
+    .admin-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
+    }
+    .admin-header h2 { font-family: 'Playfair Display', serif; font-size: 2rem; }
+    .admin-header h2 span { color: var(--red-accent); }
+    .admin-grid { display: grid; gap: 28px; }
+    .admin-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+    }
+    .admin-card h3 { font-size: 1.1rem; margin-bottom: 18px; color: var(--gold); }
+    .admin-upload-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    #admin-img-preview {
+      width: 100%; max-height: 200px; object-fit: cover;
+      border-radius: 10px; border: 1px solid var(--border);
+      display: none; margin-top: 12px;
+    }
+    .btn-admin-add {
+      background: linear-gradient(135deg, #e63946, #c1121f);
+      color: #fff; font-weight: 700; font-size: 0.9rem;
+      padding: 12px 24px; border-radius: 30px;
+      border: none; cursor: pointer; transition: opacity 0.2s;
+      width: 100%; margin-top: 16px;
+    }
+    .btn-admin-add:hover { opacity: 0.85; }
+
+    /* ===== MAP SECTION ===== */
+    #map-section {
+      padding: 80px 5%;
+      background: linear-gradient(180deg, #080c20, #0a0e2a);
+    }
+    #map-container {
+      border-radius: 18px; overflow: hidden;
+      border: 2px solid var(--border);
+      box-shadow: var(--shadow);
+      position: relative; height: 500px;
+    }
+    #map-container iframe {
+      width: 100%; height: 100%; border: none;
+    }
+
+    /* ===== FOOTER ===== */
+    #footer {
+      padding: 50px 5% 30px;
+      background: #050810;
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 36px; margin-bottom: 36px;
+    }
+    .footer-brand .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--gold); font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .footer-brand p { color: var(--gray-text); font-size: 0.85rem; line-height: 1.7; }
+    .footer-col h4 { color: var(--white); font-size: 0.95rem; margin-bottom: 14px; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { color: var(--gray-text); font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-contact p { color: var(--gray-text); font-size: 0.85rem; margin-bottom: 8px; display: flex; gap: 8px; align-items: flex-start; }
+    .footer-bottom { text-align: center; padding-top: 28px; border-top: 1px solid var(--border); color: var(--gray-text); font-size: 0.8rem; }
+
+    /* ===== LIGHTBOX (full image view) ===== */
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      align-items: center; justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox-img {
+      max-width: 95vw; max-height: 95vh;
+      border-radius: 12px; border: 2px solid var(--border);
+      object-fit: contain;
+    }
+    #lightbox-close {
+      position: absolute; top: 20px; right: 24px;
+      color: #fff; font-size: 2rem; cursor: pointer;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    #lightbox-close:hover { background: var(--red-accent); }
+
+    /* ===== ADMIN LOGIN MODAL ===== */
+    #admin-login-modal {
+      display: none; position: fixed; inset: 0; z-index: 8000;
+      background: rgba(0,0,0,0.85);
+      align-items: center; justify-content: center;
+    }
+    #admin-login-modal.open { display: flex; }
+    .login-box {
+      background: #0d1b4b; border: 1px solid var(--border);
+      border-radius: 20px; padding: 44px; max-width: 380px; width: 100%;
+      text-align: center;
+    }
+    .login-box h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; }
+    .login-box p { color: var(--gray-text); font-size: 0.88rem; margin-bottom: 28px; }
+    .login-box input {
+      width: 100%; background: rgba(255,255,255,0.07);
+      border: 1px solid var(--border); border-radius: 10px;
+      color: var(--white); padding: 13px 16px;
+      font-family: 'Poppins', sans-serif; font-size: 0.9rem;
+      outline: none; margin-bottom: 14px; transition: border-color 0.2s;
+    }
+    .login-box input:focus { border-color: var(--blue-neon); }
+    .btn-login {
+      width: 100%; background: linear-gradient(135deg, var(--gold), #d4860e);
+      color: #000; font-weight: 700; font-size: 1rem;
+      padding: 13px; border-radius: 30px;
+      border: none; cursor: pointer; transition: opacity 0.2s;
+    }
+    .btn-login:hover { opacity: 0.88; }
+    .btn-login-cancel {
+      margin-top: 12px; background: transparent;
+      color: var(--gray-text); border: none; cursor: pointer;
+      font-size: 0.85rem; transition: color 0.2s;
+    }
+    .btn-login-cancel:hover { color: var(--red-accent); }
+    #login-error { color: var(--red-accent); font-size: 0.82rem; margin-top: 8px; display: none; }
+
+    /* ===== TOAST ===== */
+    #toast {
+      position: fixed; bottom: 30px; right: 30px; z-index: 10000;
+      background: linear-gradient(135deg, var(--green-accent), #128c7e);
+      color: #fff; padding: 14px 24px;
+      border-radius: 12px; font-size: 0.9rem; font-weight: 600;
+      box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+      transform: translateY(80px); opacity: 0;
+      transition: all 0.3s;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .admin-upload-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-cover img { height: 240px; }
+      #map-container { height: 340px; }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0e2a; }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+    /* Section dividers */
+    .divider {
+      height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* Stats bar */
+    #stats-bar {
+      background: linear-gradient(135deg, var(--blue-mid), #0a1535);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 36px 5%;
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 48px;
+    }
+    .stat-item { text-align: center; }
+    .stat-item .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; color: var(--gold); font-weight: 900;
+    }
+    .stat-item .lbl { color: var(--gray-text); font-size: 0.82rem; letter-spacing: 1px; }
+
+    /* Testimonials */
+    #testimonials {
+      padding: 80px 5%;
+      background: linear-gradient(180deg, #0a0e2a, #080c20);
+    }
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px; max-width: 1000px; margin: 0 auto;
+    }
+    .testi-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 26px;
+    }
+    .testi-card .stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 12px; }
+    .testi-card p { color: var(--gray-text); font-size: 0.88rem; line-height: 1.7; margin-bottom: 18px; }
+    .testi-card .author { font-weight: 600; font-size: 0.9rem; }
+    .testi-card .role { font-size: 0.78rem; color: var(--blue-neon); }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-logo">Sahil <span>Printing</span></div>
+  <div class="nav-links">
+    <a href="#hero">Home</a>
+    <a href="#services-selector">Services</a>
+    <a href="#map-section">Location</a>
+    <a href="#footer">Contact</a>
+    <a href="#" class="nav-cta" id="admin-btn" onclick="openAdminLogin(event)">🔐 Admin</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✨ True Colours · Clarity & Perfection</div>
+    <h1 class="hero-title">
+      <span class="gold">Sahil</span><br/>
+      <span class="neon">Printing</span>
+    </h1>
+    <p class="hero-sub">Premium Flex Printing & Graphic Design Studio<br/>Banners · Brochures · Wedding Cards · Stickers · Acrylic & More</p>
+
+    <div class="hero-cover">
+      <img src="ChatGPT_Image_Apr_25__2026__03_41_28_PM.png" alt="Sahil Printing Studio" 
+           onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.style.display='flex';" />
+      <div class="cover-overlay"></div>
+      <div class="cover-text">
+        <h2>Sahil Printing Studio</h2>
+        <p>High Resolution · FlexJet 5000</p>
+      </div>
+    </div>
+
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('services-selector').scrollIntoView({behavior:'smooth'})">Explore Services</button>
+      <button class="btn-outline" onclick="document.getElementById('map-section').scrollIntoView({behavior:'smooth'})">📍 Find Us</button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div id="stats-bar">
+  <div class="stat-item"><div class="num">5000+</div><div class="lbl">HAPPY CLIENTS</div></div>
+  <div class="stat-item"><div class="num">8+</div><div class="lbl">SERVICES</div></div>
+  <div class="stat-item"><div class="num">10+</div><div class="lbl">YEARS EXP.</div></div>
+  <div class="stat-item"><div class="num">HD</div><div class="lbl">PRINT QUALITY</div></div>
+</div>
+
+<!-- ===== SERVICES SELECTOR ===== -->
+<section id="services-selector">
+  <div class="section-label">
+    <div class="tag">What We Do</div>
+    <h2>Choose Your <span>Service</span></h2>
+    <p>Select a category below to browse designs & place your order</p>
+  </div>
+  <div id="service-cards-grid">
+    <!-- Cards generated by JS -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== DESIGN GALLERY TAB ===== -->
+<section id="design-gallery">
+  <div class="gallery-header">
+    <h2 id="gallery-title">Gallery: <span>Banners</span></h2>
+    <button class="btn-back" onclick="closeGallery()">← Back to Services</button>
+  </div>
+  <div id="designs-grid"></div>
+
+  <!-- Customer Upload Section -->
+  <div id="customer-upload-section">
+    <h3>📤 Upload Your Own Design</h3>
+    <p>Have your own design ready? Send us the file along with your details and we'll get it printed!</p>
+    <div class="customer-form">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Your Name *</label>
+          <input type="text" id="cust-name" placeholder="Enter your name"/>
+        </div>
+        <div class="form-field">
+          <label>Phone Number *</label>
+          <input type="tel" id="cust-phone" placeholder="Your WhatsApp number"/>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Service Required *</label>
+          <select id="cust-service">
+            <option value="">Select service...</option>
+            <option>Flex Banner</option>
+            <option>Brochure</option>
+            <option>Wedding Card</option>
+            <option>Visiting Card</option>
+            <option>Acrylic Board</option>
+            <option>Sticker / Vinyl</option>
+          
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Size / Quantity</label>
+          <input type="text" id="cust-size" placeholder="e.g. 4x2 ft, 500 pcs"/>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Additional Notes</label>
+        <textarea id="cust-notes" placeholder="Any special instructions, colour preferences, deadline..."></textarea>
+      </div>
+      <div class="form-field">
+        <label>Attach Design File (optional)</label>
+        <label class="cust-file-label" for="cust-file-input">
+          <span>📁</span>
+          <span>Click to attach image / PDF / AI / CDR file</span>
+        </label>
+        <input type="file" id="cust-file-input" accept="image/*,.pdf,.ai,.cdr,.psd"/>
+        <div id="cust-file-name"></div>
+      </div>
+      <button class="btn-whatsapp" onclick="sendToWhatsApp()">
+        <span>💬</span> Send Order via WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADMIN PANEL ===== -->
+<section id="admin-panel">
+  <div class="admin-header">
+    <h2>Admin <span>Panel</span></h2>
+    <button class="btn-back" onclick="closeAdmin()">← Exit Admin</button>
+  </div>
+  <div class="admin-grid">
+    <div class="admin-card">
+      <h3>➕ Add New Design</h3>
+      <div class="admin-upload-grid">
+        <div class="form-field">
+          <label>Service Category</label>
+          <select id="admin-service-select">
+            <option value="">Select service...</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Design Title</label>
+          <input type="text" id="admin-design-title" placeholder="e.g. Premium Wedding Invite"/>
+        </div>
+        <div class="form-field">
+          <label>Description</label>
+          <input type="text" id="admin-design-desc" placeholder="e.g. Gold foil, 2 sides"/>
+        </div>
+        <div class="form-field">
+          <label>Upload Image</label>
+          <label class="cust-file-label" for="admin-file-input">
+            <span>🖼️</span><span>Click to upload design image</span>
+          </label>
+          <input type="file" id="admin-file-input" accept="image/*"/>
+        </div>
+      </div>
+      <img id="admin-img-preview" src="" alt="Preview"/>
+      <button class="btn-admin-add" onclick="addDesign()">✅ Add Design to Gallery</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials">
+  <div class="section-label">
+    <div class="tag">Client Love</div>
+    <h2>What Our <span>Customers Say</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>The banner quality was outstanding! Colors were so vibrant and exactly what I imagined. Fast delivery too.</p>
+      <div class="author">Rajesh Sharma</div>
+      <div class="role">Event Organizer</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>Got our wedding cards printed here. The design team was so creative and the final result was beautiful!</p>
+      <div class="author">Priya Mehta</div>
+      <div class="role">Bride</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>Best flex printing in town. Our shop signage looks premium. Will definitely recommend to everyone!</p>
+      <div class="author"></div>
+      <div class="role">Shop Owner</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAP SECTION ===== -->
+<section id="map-section">
+  <div class="section-label">
+    <div class="tag">Find Us</div>
+    <h2>Our <span>Location</span></h2>
+    <p>Visit our studio – we're always happy to help you in person</p>
+  </div>
+  <div id="map-container">
+    <!-- 
+      HOW TO GET YOUR GOOGLE MAP EMBED:
+      1. Go to Google Maps: https://maps.google.com
+      2. Search for your shop address
+      3. Click Share → Embed a map → Copy HTML
+      4. Paste the iframe src URL below in place of the ?q= link
+      
+      Current placeholder: searches "Sahil Printing" near Prayagraj (update with your exact address)
+    -->
+    <iframe 
+      src="https://www.google.com/maps?q=Sahil+Printing+19.2853711,72.7859364&z=18&output=embed"
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Sahil Printing Location">
+    </iframe>
+  </div>
+  <p style="text-align:center;margin-top:16px;color:var(--gray-text);font-size:0.85rem;">
+    📌 Use zoom + / – controls on the map · Click "View larger map" to open in Google Maps app
+  </p>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Sahil Printing</div>
+      <p>Premium flex printing and graphic design solutions. True colours, clarity and perfection — every time.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Flex Banners</a></li>
+        <li><a href="#">Brochures</a></li>
+        <li><a href="#">Wedding Cards</a></li>
+        <li><a href="#">Visiting Cards</a></li>
+        <li><a href="#">Acrylic Boards</a></li>
+        <li><a href="#">Stickers & Vinyl</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services-selector">Services</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#map-section">Location</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4>Contact</h4>
+      <p>📱 <a href="https://wa.me/918169774885" style="color:var(--green-accent)">+91 8169774885, <br>+918948672234</a></p>
+      <p>🕐 Mon-sat: 9 AM – 10PM</p>
+      <p>📍 Bhayander (W, Shop No. 10,11, Al Khalik Manzil, Karai Pada, Uttan Pali Road, Dist, Uttan, Thane, Maharashtra 401106)</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Sahil Printing. All rights reserved. | Made by shabir with ❤️
+  </div>
+</footer>
+
+<!-- ===== LIGHTBOX ===== -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <div id="lightbox-close" onclick="closeLightbox()">✕</div>
+  <img id="lightbox-img" src="" alt="Full view"/>
+</div>
+
+<!-- ===== ADMIN LOGIN MODAL ===== -->
+<div id="admin-login-modal">
+  <div class="login-box">
+    <h3>🔐 Admin Login</h3>
+    <p>Enter your admin password to access the design management panel</p>
+    <input type="password" id="admin-password" placeholder="Enter password" onkeydown="if(event.key==='Enter')verifyAdmin()"/>
+    <div id="login-error">❌ Incorrect password. Try again.</div>
+    <button class="btn-login" onclick="verifyAdmin()">Login</button>
+    <button class="btn-login-cancel" onclick="closeAdminLogin()">Cancel</button>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div id="toast">✅ Message sent!</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  // =============================================
+  // DATA: SERVICES & DESIGNS
+  // Each service has: id, name, icon, desc
+  // Each design has: id, serviceId, title, desc, img (filename or '')
+  // =============================================
+
+  // Admin password – change this to your own
+  const ADMIN_PASSWORD = 'sahil2024';
+  const WHATSAPP_NUMBER = '+918169774885';
+
+  const SERVICES = [
+    { id: 'banner',   name: 'Flex Banner',    icon: '🏳️', iconImg: '12323.png', desc: 'Large format outdoor & indoor banners' },
+    { id: 'brochure', name: 'Brochure',        icon: '📄', iconImg: 'card4.jpg', desc: 'Tri-fold, bi-fold, pamphlets' },
+    { id: 'wedding',  name: 'Wedding Cards',   icon: '💍', iconImg: 'wedding.jpeg"', desc: 'Elegant wedding & invitation cards' },
+    { id: 'card',     name: 'Visiting Card',   icon: '💼', iconImg: 'WhatsApp Image 2026-01-26 at 2.59.47 PM.jpeg', desc: 'Business cards, premium finishes' },
+    { id: 'acrylic',  name: 'Acrylic Board',   icon: '✨', iconImg: 'Gemini_Generated_Image_d8nnlxd8nnlxd8nn.png', desc: 'LED, glossy acrylic name boards' },
+    { id: 'sticker',  name: 'Sticker / Vinyl', icon: '🎨', iconImg: 'card5.jpg', desc: 'Custom stickers, vehicle wraps' },
+    { id: 'Menu',   name: 'Menu / Pamphlet',   icon: '👕', iconImg: 'menu.jpeg', desc: 'Restaurant menus, pamphlets & catalogues' },
+    { id: 'bill book', name: 'Bill Book',   icon: '📓', iconImg: 'bill.jpeg', desc: 'Custom bill books and pads' },
+    { id: 'other',    name: 'Other Designs',   icon: '🖨️', iconImg: 'WhatsApp Image 2026-01-26 at 4.50.23 PM.jpeg', desc: 'Calendars, danglers, posters & more' },
+  ];
+
+  // Sample designs (add your real image filenames here)
+  // img: '' means no image yet; img: 'filename.jpg' means an image file
+  let DESIGNS = [
+    { id: 'd1', serviceId: 'banner',   title: 'City Night Banner',      desc: 'Full HD city skyline print',     img: '' },
+    { id: 'd2', serviceId: 'banner',   title: 'Product Launch Banner',  desc: 'Bold red promotional banner',    img: '' },
+    { id: 'd3', serviceId: 'brochure', title: 'Corporate Tri-fold',     desc: 'Professional business brochure', img: '' },
+    { id: 'd4', serviceId: 'brochure', title: 'Restaurant Menu',        desc: 'Full colour food brochure',      img: '' },
+    { id: 'd13', serviceId: 'Menu', title: 'Menu Card Sample',        desc: 'Printed restaurant menu design', img: 'menu.jpeg' },
+    { id: 'd5', serviceId: 'wedding',  title: 'Royal Gold Invite',      desc: 'Embossed gold foil card',        img: '' },
+    { id: 'd6', serviceId: 'wedding',  title: 'Floral Invitation',      desc: 'Soft pink floral theme',         img: '' },
+    { id: 'd7', serviceId: 'card',     title: 'Executive Black Card',   desc: 'Matte black, spot UV',           img: 'instant-print-1000-business-card-trade-price-company-london-e2-near-me.jpg' },
+    { id: 'd8', serviceId: 'card',     title: 'Minimalist White Card',  desc: 'Clean, modern business card',    img: '' },
+    { id: 'd9', serviceId: 'acrylic',  title: 'LED Neon Board',         desc: 'Glowing neon acrylic sign',      img: '' },
+    { id: 'd10',serviceId: 'sticker',  title: 'Car Door Vinyl Wrap',    desc: 'Full colour vinyl sticker',      img: '' },
+    { id: 'd11',serviceId: 'tshirt',   title: 'DTF Printed Tee',        desc: 'Direct to film, full colour',    img: '' },
+    { id: 'd12',serviceId: 'other',    title: 'Wall Calendar 2025',     desc: '12 month photo calendar',        img: '' },
+  ];
+
+  let currentService = null;
+  let isAdmin = false;
+
+  // =============================================
+  // BUILD SERVICE CARDS
+  // =============================================
+  function buildServiceCards() {
+    const grid = document.getElementById('service-cards-grid');
+    grid.innerHTML = '';
+    SERVICES.forEach(svc => {
+      const card = document.createElement('div');
+      card.className = 'service-card';
+      card.id = 'svc-' + svc.id;
+      const iconHtml = svc.iconImg ? `<img src="${svc.iconImg}" alt="${svc.name}" loading="lazy" />` : svc.icon;
+      card.innerHTML = `
+        <div class="service-icon">${iconHtml}</div>
+        <h3>${svc.name}</h3>
+        <p>${svc.desc}</p>
+      `;
+      card.onclick = () => openGallery(svc);
+      grid.appendChild(card);
+    });
+
+    // Populate admin service select
+    const sel = document.getElementById('admin-service-select');
+    sel.innerHTML = '<option value="">Select service...</option>';
+    SERVICES.forEach(svc => {
+      sel.innerHTML += `<option value="${svc.id}">${svc.name}</option>`;
+    });
+  }
+
+  // =============================================
+  // OPEN / CLOSE GALLERY
+  // =============================================
+  function openGallery(svc) {
+    currentService = svc;
+    document.getElementById('gallery-title').innerHTML = `Gallery: <span>${svc.name}</span>`;
+    document.getElementById('design-gallery').classList.add('visible');
+    document.getElementById('design-gallery').scrollIntoView({ behavior: 'smooth' });
+    buildDesignsGrid(svc.id);
+
+    // Mark active card
+    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
+    document.getElementById('svc-' + svc.id).classList.add('active');
+  }
+
+  function closeGallery() {
+    document.getElementById('design-gallery').classList.remove('visible');
+    document.getElementById('designs-grid').innerHTML = '';
+    document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active'));
+    currentService = null;
+    document.getElementById('services-selector').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // =============================================
+  // BUILD DESIGNS GRID
+  // =============================================
+  function buildDesignsGrid(serviceId) {
+    const grid = document.getElementById('designs-grid');
+    const filtered = DESIGNS.filter(d => d.serviceId === serviceId);
+    grid.innerHTML = '';
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `<p style="color:var(--gray-text);padding:30px;text-align:center;">No designs yet. Check back soon!</p>`;
+      return;
+    }
+
+    filtered.forEach(design => {
+      const item = document.createElement('div');
+      item.className = 'design-item';
+      item.id = 'design-' + design.id;
+
+      const imgContent = design.img
+        ? `<img src="${design.img}" alt="${design.title}" 
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />`
+        : '';
+      const phStyle = design.img ? 'display:none;' : '';
+
+      item.innerHTML = `
+        <div class="img-wrap">
+          ${imgContent}
+          <div class="img-placeholder" style="${phStyle}">
+            <div class="ph-icon">🖼️</div>
+            <div>Design Preview</div>
+          </div>
+          <div class="img-overlay">
+            ${design.img ? `<button class="overlay-btn" onclick="openLightbox('${design.img}', event)">🔍 View Full Image</button>` : ''}
+            <button class="overlay-btn" onclick="selectDesign('${design.id}', event)">✅ Select</button>
+          </div>
+        </div>
+        <div class="item-info">
+          <h4>${design.title}</h4>
+          <p>${design.desc}</p>
+        </div>
+        <div class="item-actions">
+          <button class="btn-select" onclick="selectDesign('${design.id}')">Order This</button>
+          <button class="btn-delete" onclick="deleteDesign('${design.id}')">🗑️</button>
+        </div>
+      `;
+      grid.appendChild(item);
+    });
+  }
+
+  // =============================================
+  // SELECT DESIGN → prefill WhatsApp form
+  // =============================================
+  function selectDesign(designId, event) {
+    if (event) event.stopPropagation();
+    const design = DESIGNS.find(d => d.id === designId);
+    if (!design) return;
+    const svc = SERVICES.find(s => s.id === design.serviceId);
+
+    document.getElementById('cust-service').value = svc ? svc.name : '';
+    document.getElementById('cust-notes').value = `I'm interested in: "${design.title}" – ${design.desc}`;
+    document.getElementById('customer-upload-section').scrollIntoView({ behavior: 'smooth' });
+    showToast('Design selected! Fill your details below 👇');
+  }
+
+  // =============================================
+  // DELETE DESIGN (admin only)
+  // =============================================
+  function deleteDesign(designId) {
+    if (!isAdmin) return;
+    if (!confirm('Remove this design?')) return;
+    DESIGNS = DESIGNS.filter(d => d.id !== designId);
+    if (currentService) buildDesignsGrid(currentService.id);
+    showToast('Design removed!');
+  }
+
+  // =============================================
+  // LIGHTBOX
+  // =============================================
+  function openLightbox(imgSrc, event) {
+    if (event) event.stopPropagation();
+    document.getElementById('lightbox-img').src = imgSrc;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(event) {
+    if (event && event.target !== document.getElementById('lightbox') && event.target !== document.getElementById('lightbox-close')) return;
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ===== Keyboard close =====
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+      closeAdminLogin();
+    }
+  });
+
+  // =============================================
+  // SEND TO WHATSAPP
+  // =============================================
+  function sendToWhatsApp() {
+    const name    = document.getElementById('cust-name').value.trim();
+    const phone   = document.getElementById('cust-phone').value.trim();
+    const service = document.getElementById('cust-service').value;
+    const size    = document.getElementById('cust-size').value.trim();
+    const notes   = document.getElementById('cust-notes').value.trim();
+    const fileName = document.getElementById('cust-file-name').textContent;
+
+    if (!name || !phone || !service) {
+      alert('Please fill in Name, Phone and Service fields.');
+      return;
+    }
+
+    let msg = `🖨️ *New Order – Sahil Printing*\n\n`;
+    msg += `👤 *Name:* ${name}\n`;
+    msg += `📱 *Phone:* ${phone}\n`;
+    msg += `🎯 *Service:* ${service}\n`;
+    if (size)     msg += `📐 *Size/Qty:* ${size}\n`;
+    if (notes)    msg += `📝 *Notes:* ${notes}\n`;
+    if (fileName) msg += `📎 *File:* ${fileName} (please share via WhatsApp)\n`;
+
+    const encoded = encodeURIComponent(msg);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank');
+    showToast('Opening WhatsApp... 💬');
+  }
+
+  // File name display
+  document.getElementById('cust-file-input').addEventListener('change', function() {
+    const name = this.files[0] ? this.files[0].name : '';
+    document.getElementById('cust-file-name').textContent = name ? '📎 ' + name : '';
+  });
+
+  // =============================================
+  // ADMIN: LOGIN
+  // =============================================
+  function openAdminLogin(event) {
+    if (event) event.preventDefault();
+    if (isAdmin) {
+      // Already logged in: toggle admin panel
+      const panel = document.getElementById('admin-panel');
+      panel.classList.toggle('visible');
+      if (panel.classList.contains('visible')) panel.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    document.getElementById('admin-login-modal').classList.add('open');
+    setTimeout(() => document.getElementById('admin-password').focus(), 100);
+  }
+
+  function closeAdminLogin() {
+    document.getElementById('admin-login-modal').classList.remove('open');
+    document.getElementById('admin-password').value = '';
+    document.getElementById('login-error').style.display = 'none';
+  }
+
+  function verifyAdmin() {
+    const pwd = document.getElementById('admin-password').value;
+    if (pwd === ADMIN_PASSWORD) {
+      isAdmin = true;
+      document.body.classList.add('admin-mode');
+      closeAdminLogin();
+      document.getElementById('admin-panel').classList.add('visible');
+      document.getElementById('admin-panel').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('admin-btn').textContent = '⚙️ Admin Panel';
+      showToast('Welcome, Admin! 🔓');
+      if (currentService) buildDesignsGrid(currentService.id);
+    } else {
+      document.getElementById('login-error').style.display = 'block';
+    }
+  }
+
+  function closeAdmin() {
+    document.getElementById('admin-panel').classList.remove('visible');
+  }
+
+  // =============================================
+  // ADMIN: ADD DESIGN
+  // =============================================
+  let adminImageSrc = '';
+
+  document.getElementById('admin-file-input').addEventListener('change', function() {
+    const file = this.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      adminImageSrc = e.target.result;
+      const preview = document.getElementById('admin-img-preview');
+      preview.src = adminImageSrc;
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function addDesign() {
+    const serviceId = document.getElementById('admin-service-select').value;
+    const title     = document.getElementById('admin-design-title').value.trim();
+    const desc      = document.getElementById('admin-design-desc').value.trim();
+
+    if (!serviceId || !title) {
+      alert('Please select a service and enter a title.'); return;
+    }
+
+    const newDesign = {
+      id: 'd' + Date.now(),
+      serviceId,
+      title,
+      desc: desc || 'Custom design',
+      img: adminImageSrc || ''
+    };
+    DESIGNS.push(newDesign);
+
+    // Reset form
+    document.getElementById('admin-service-select').value = '';
+    document.getElementById('admin-design-title').value = '';
+    document.getElementById('admin-design-desc').value = '';
+    document.getElementById('admin-file-input').value = '';
+    document.getElementById('admin-img-preview').style.display = 'none';
+    adminImageSrc = '';
+
+    showToast('Design added successfully! ✅');
+
+    // Refresh gallery if open
+    if (currentService && currentService.id === serviceId) {
+      buildDesignsGrid(serviceId);
+    }
+  }
+
+  // =============================================
+  // TOAST
+  // =============================================
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3200);
+  }
+
+  // =============================================
+  // INIT
+  // =============================================
+  buildServiceCards();
+</script>
+</body>
+</html>
